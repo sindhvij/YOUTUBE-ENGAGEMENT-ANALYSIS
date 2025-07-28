@@ -1,2 +1,75 @@
-# YOUTUBE-ENGAGEMENT-ANALYSIS
-Understanding the nature of trending videos is crucial for marketers and content providers on YouTube, a popular video network with millions of uploads every day. To find important trends in the top 200 trending YouTube videos in the US, this study looks at posting patterns, video genres, and interaction metrics. Although earlier research concentrated on worldwide patterns or lacked comprehensive correlations between engagement metrics, this study fills in the knowledge gaps about regional patterns and the relationship between audience involvement and video duration. Our problem uses a targeted dataset to fulfill the requirement for data-driven insights unique to the US market.The YouTube Data API was used to gather the data, which was then formatted and subjected to statistical and visual analysis utilizing scatter plots, heatmaps, and histograms. Alongside video attributes, metrics like views, likes, and comments were analyzed. The findings indicate that views, likes, and comments are strongly correlated, with gaming, entertainment, and music appearing as the most popular categories. While the best use of tags improves discoverability, short movies (between 0 and 5 minutes) regularly perform better in terms of engagement. These results guide content initiatives aimed at optimizing impact and reach.This study offers practical insights into the elements that influence YouTube success and lays the groundwork for future research on audience behavior and regional patterns.
+# 📺 YouTube Trending ETL Pipeline & Sentiment Analysis
+
+## 📘 Project Overview
+
+This project builds a robust ETL (Extract, Transform, Load) pipeline using Apache Airflow to process trending YouTube video data and perform sentiment analysis. It automates data ingestion, transformation, and storage, and adds business intelligence value by analyzing viewer sentiments through natural language processing techniques.
+
+---
+
+## 🎯 Objectives
+
+- Automate the data pipeline for trending YouTube videos
+- Clean, transform, and prepare the data for analysis
+- Perform sentiment analysis on video titles and descriptions
+- Enable downstream analytics and dashboarding
+
+---
+
+## 🛠️ Tools & Technologies
+
+| Component      | Tool                      |
+|----------------|---------------------------|
+| Orchestration  | Apache Airflow (DAG)      |
+| Programming    | Python 3                  |
+| Data Source    | YouTube Data API v3       |
+| Storage        | CSV / Local file system   |
+| Analysis       | NLP (VADER), Pandas       |
+
+---
+
+## 📦 ETL Pipeline (Airflow DAG)
+
+### DAG Name: `youtube_trending_etl_pipeline`
+
+This pipeline follows a classic ETL architecture:
+
+1. **`extract_trending_videos`**
+   - Connects to the YouTube API
+   - Fetches metadata of trending videos (title, category, views, etc.)
+   - Saves the raw JSON or CSV file
+
+2. **`transform_data`**
+   - Cleans and normalizes data
+   - Handles missing values and renames columns
+   - Prepares textual data for NLP
+
+3. **`load_data`**
+   - Stores the transformed data locally or in a target database
+   - Prepares it for downstream analysis
+
+✅ All tasks shown as `success` in the DAG run (`2025-01-09, 12:36:10 UTC`)
+
+---
+
+## 🧠 Sentiment Analysis
+
+The notebook `YOUTUBESENTIMENTS.ipynb` performs sentiment analysis using:
+
+- **VADER (Valence Aware Dictionary and sEntiment Reasoner)**
+- Sentiment scoring on:
+  - Video titles
+  - Video descriptions
+- Classification into:
+  - Positive
+  - Neutral
+  - Negative
+
+📈 Outputs include visualizations and summary statistics for:
+- Sentiment distributions
+- Most positive/negative videos
+- Trends by category
+
+---
+
+
+
