@@ -71,5 +71,25 @@ The notebook `YOUTUBESENTIMENTS.ipynb` performs sentiment analysis using:
 
 ---
 
+---
+
+## ✅ How to Run
+
+### 1. Set up Airflow
+```bash
+airflow db init
+airflow users create --username admin --password admin --role Admin --email you@example.com
+airflow scheduler
+airflow webserver
+
+2. Trigger the DAG
+Navigate to Airflow UI
+
+Turn on youtube_trending_etl_pipeline
+
+3. Run Sentiment Notebook
+Open YOUTUBESENTIMENTS.ipynb
+
+Run all cells to generate analysis
 
 
